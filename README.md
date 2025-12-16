@@ -12,14 +12,6 @@
 
 This repository contains the implementation of the **TrailService micro-service**, a RESTful API for managing walking trails as part of a well-being trail application. The service provides full CRUD (Create, Read, Update, Delete) operations for trail data, integrates with an external authentication service, and follows RESTful API principles.
 
-### Prerequisites
-
-- **Python 3.9+**
-- **Microsoft SQL Server 2019+** (Docker or local installation)
-- **ODBC Driver 17 for SQL Server**
-- **Azure Data Studio** (or SQL Server Management Studio)
-- **Postman** (for API testing)
-
 ## 🐍 Python Environment Setup
 
 ### Prerequisites
