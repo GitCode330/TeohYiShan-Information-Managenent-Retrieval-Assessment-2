@@ -20,18 +20,6 @@ This repository contains the implementation of the **TrailService micro-service*
 - **Azure Data Studio** (or SQL Server Management Studio)
 - **Postman** (for API testing)
 
-### Database Setup (Docker SQL Server)
-
-#### Using Docker (Recommended)
-      ```bash
-      # Pull SQL Server 2019 image
-      docker pull mcr.microsoft.com/mssql/server:2019-latest
-
-      # Run SQL Server container
-      docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=C0mp2001!" \
-         -p 1433:1433 --name sqlserver \
-         -d mcr.microsoft.com/mssql/server:2019-latest
-
 ## 🐍 Python Environment Setup
 
 ### Prerequisites
