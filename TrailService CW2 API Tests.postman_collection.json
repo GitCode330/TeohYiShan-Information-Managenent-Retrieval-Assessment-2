@@ -1,0 +1,292 @@
+{
+	"info": {
+		"_postman_id": "62177c98-9236-4cf6-831c-611524cd0a39",
+		"name": "TrailService CW2 API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49692499",
+		"_collection_link": "https://yi-teoh-4409630.postman.co/workspace/Yi-Shan's-Workspace~2732d5db-580e-4d61-86d2-b014b1dbaf5c/collection/49692499-62177c98-9236-4cf6-831c-611524cd0a39?action=share&source=collection_link&creator=49692499"
+	},
+	"item": [
+		{
+			"name": "GET All Trails",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/trails",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Specific Trail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/trails/1",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trails",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create Trail WITHOUT Authentication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"trail_name\": \"Unauthorized Test Trail\",\r\n    \"description\": \"This should fail without token\",\r\n    \"difficulty\": \"Easy\",\r\n    \"length\": 2.5,\r\n    \"elevation_gain\": 50,\r\n    \"owner_user_id\": 101\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/trails",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Create Trail WITH Authentication",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer test_token_101",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"trail_name\": \"New Test Coastal Walk\",\r\n    \"description\": \"A beautiful coastal trail for testing\",\r\n    \"difficulty\": \"Moderate\",\r\n    \"length\": 4.5,\r\n    \"elevation_gain\": 150,\r\n    \"owner_user_id\": 101\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/trails",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trails"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Newly Created Trail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/trails/5",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trails",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Trail with WRONG Owner",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer test_token_102",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"trail_name\": \"Unauthorized Update Attempt\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/trails/5",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trails",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Update Trail with CORRECT Owner",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer test_token_101",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"trail_name\": \"Updated Coastal Paradise\",\r\n    \"description\": \"Now with better description after update\",\r\n    \"difficulty\": \"Hard\",\r\n    \"length\": 5.0,\r\n    \"elevation_gain\": 180\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/trails/5",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"trails",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Updated Trail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/trails/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trails",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Trail with CORRECT Owner",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer test_token_101",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/trails/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trails",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verify Trail is Deleted",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/trails/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"trails",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET All Features",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/features",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"features"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
