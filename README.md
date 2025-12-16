@@ -20,17 +20,17 @@ This repository contains the implementation of the **TrailService micro-service*
 - **Azure Data Studio** (or SQL Server Management Studio)
 - **Postman** (for API testing)
 
-### 1. Database Setup (Docker SQL Server)
+### Database Setup (Docker SQL Server)
 
 #### Using Docker (Recommended)
-```bash
-# Pull SQL Server 2019 image
-docker pull mcr.microsoft.com/mssql/server:2019-latest
+      ```bash
+      # Pull SQL Server 2019 image
+      docker pull mcr.microsoft.com/mssql/server:2019-latest
 
-# Run SQL Server container
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=C0mp2001!" \
-   -p 1433:1433 --name sqlserver \
-   -d mcr.microsoft.com/mssql/server:2019-latest
+      # Run SQL Server container
+      docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=C0mp2001!" \
+         -p 1433:1433 --name sqlserver \
+         -d mcr.microsoft.com/mssql/server:2019-latest
 
 ## 🐍 Python Environment Setup
 
@@ -43,13 +43,13 @@ Before setting up the Python environment, ensure you have:
 
 ### Steps
 
-#### 1. Clone the Repository
-```bash
-# Clone the repository to your local machine
-git clone https://github.com/GitCode330/TeohYiShan-Information-Managenent-Retrieval-Assessment-2.git
+1. **Clone the Repository:**
+   ```bash
+   # Clone the repository to your local machine
+   git clone https://github.com/GitCode330/TeohYiShan-Information-Managenent-Retrieval-Assessment-2.git
 
-# Navigate to the project directory
-cd TeohYiShan-Information-Managenent-Retrieval-Assessment-2
+   # Navigate to the project directory
+   cd TeohYiShan-Information-Managenent-Retrieval-Assessment-2
 
 2.  **Start the Database Container:**
     Run the following command in your terminal to start the MSSQL Docker container.
